@@ -29,7 +29,7 @@
                                             <af:panelGroupLayout id="pgl3" layout="vertical" inlineStyle="padding: 4%;">
                                                 <af:button text="#{item.bindings.MmpPagesName.inputValue}" id="b1"
                                                            inlineStyle="width:190px;"
-                                                           icon="/ViewController/faces/javax.faces.resource/#{item.bindings.MmpPageIcon.inputValue}?ln=images"
+                                                           icon="/MMP_Project-ViewController-context-root/faces/javax.faces.resource/#{item.bindings.MmpPageIcon.inputValue}?ln=images"
                                                            actionListener="#{viewScope.MonitoringSidebarBean.fragmentCall}">
                                                     <f:attribute name="link" value="#{item.bindings.MmpPageLink.inputValue}"/>
                                                 </af:button>

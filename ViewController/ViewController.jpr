@@ -201,7 +201,7 @@
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="MMP_Project-ViewController-webapp"/>
+      <value n="j2eeWebAppName" v="MMP_Project-ViewController-context-root"/>
       <value n="j2eeWebContextRoot" v="MMP_Project-ViewController-context-root"/>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">

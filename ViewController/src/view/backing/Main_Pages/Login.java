@@ -37,6 +37,7 @@ public class Login {
     // generating static variables to use in different scopes
     private static String role_master_id;
     private static String user_master_id;
+    private static String asts;
     private static String member_reg_id;
     private static String sessUName;
 
@@ -142,7 +143,7 @@ public class Login {
             conn = DatabaseConnection.getConnection();
             Statement stmt = conn.createStatement();
             ResultSet rset =
-                stmt.executeQuery("SELECT * FROM mmp_user_master where mmp_user_master_name = '" + username +
+                stmt.executeQuery("SELECT * FROM mmp_user_master where ast = 'Y' and mmp_user_master_name = '" + username +
                                   "' and mmp_user_master_pwd = '" + password + "'");
 
             if (rset.next()) {
@@ -150,6 +151,8 @@ public class Login {
                 //getting data against column from table
                 role_master_id = (rset.getString("mmp_role_master_id")).toString();
                 user_master_id = (rset.getString("mmp_user_master_id")).toString();
+                asts = (rset.getString("ast")).toString();
+                System.out.println(asts);
                 
                 if((rset.getString("member_reg_id")) != null){
                     member_reg_id = (rset.getString("member_reg_id")).toString();

@@ -6,13 +6,67 @@
   Name="TblGrantApprovalDetailView"
   Version="12.2.1.11.57"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="OracleName"
   CustomQuery="false"
-  SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  SelectList="TblGrantApprovalDetail.GRANT_APPROVAL_DETAIL_ID, 
+       TblGrantApprovalDetail.GRANT_APPROVAL_MASTER_ID, 
+       TblGrantApprovalDetail.FARMER_REG_ID, 
+       TblGrantApprovalDetail.GRANT_APP_MASTER_ID, 
+       TblGrantApprovalDetail.ACRE, 
+       TblGrantApprovalDetail.RATE, 
+       TblGrantApprovalDetail.AMOUNT, 
+       TblGrantApprovalDetail.AST, 
+       TblGrantApprovalDetail.CREATED_DATE, 
+       TblGrantApprovalDetail.CREATED_BY, 
+       TblGrantApprovalDetail.UPDATED_DATE, 
+       TblGrantApprovalDetail.UPDATED_BY, 
+       TblGrantApprovalDetail.F_ACRE, 
+       TblGrantApprovalDetail.F_AMOUNT, 
+       TblGrantApprovalDetail.GRANT_AMOUNT, 
+       TblGrantApprovalDetail.GRANT_RATE_ID, 
+       TblGrantApprovalDetail.GRANT_STATUS, 
+       TblGrantApprovalDetail.RO_STATUS, 
+       TblGrantApprovalDetail.RO_NUMBER, 
+       TblGrantApprovalDetail.OLD_RO_NUMBER, 
+       TblGrantApprovalDetail.REMARKS, 
+       TblGrantApprovalDetail.DISBURSE_STATUS, 
+       TblGrantApprovalDetail.LAND_UNDER_ORCH, 
+       TblGrantApprovalDetail.GRANT_BASE, 
+       TblGrantApprovalDetail.RO_VNO, 
+       TblFarmerReg.FATHER_NAME, 
+       TblFarmerReg.FARMER_REG_ID AS FARMER_REG_ID1, 
+       TblFarmerReg.NAME, 
+       TblFarmerReg.FARMER_NO, 
+       TblGrantApprovalDetail.INSP_BY, 
+       TblGrantApprovalDetail.INSP_DATE, 
+       TblGrantApprovalDetail.INSP_REMARKS, 
+       TblGrantApprovalDetail.SUBSIDY_AMOUNT"
+  FromList="TBL_GRANT_APPROVAL_DETAIL TblGrantApprovalDetail, TBL_FARMER_REG TblFarmerReg"
+  Where="TblGrantApprovalDetail.FARMER_REG_ID = TblFarmerReg.FARMER_REG_ID(+)  
+and TblGrantApprovalDetail.RO_STATUS='vctat insp'">
+  <ViewAccessor
+    Name="Ro_Insp_Ro_Status_LOV1"
+    ViewObjectName="model.LOV.Ro_Insp_Ro_Status_LOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_RoStatus"
+    ListVOName="Ro_Insp_Ro_Status_LOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RoStatus"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="dbAttr"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ViewAttr"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="TblGrantApprovalDetail"
     Entity="model.EO.TblGrantApprovalDetail"/>
@@ -145,7 +199,15 @@
     PrecisionRule="true"
     EntityAttrName="RoStatus"
     EntityUsage="TblGrantApprovalDetail"
-    AliasName="RO_STATUS"/>
+    AliasName="RO_STATUS"
+    LOVName="LOV_RoStatus">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RoNumber"
     PrecisionRule="true"

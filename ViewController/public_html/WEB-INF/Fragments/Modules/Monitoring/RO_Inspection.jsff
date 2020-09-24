@@ -226,7 +226,7 @@
                       <f:validator binding="#{row.bindings.InspRemarks.validator}"/>
                     </af:inputText>
                   </af:column>
-                  <af:column headerText="RO Status" id="c9" width="80" sortable="true" filterable="true">
+                  <!--<af:column headerText="RO Status" id="c9" width="80" sortable="true" filterable="true">
                   <f:facet name="filter">
                                           <af:inputText value="#{vs.filterCriteria.RoStatus}"
                                           id="it30" placeholder="Search Status">
@@ -236,6 +236,21 @@
                                               label="#{row.bindings.RoStatus.label}" autoSubmit="true"
                                               shortDesc="#{bindings.TblGrantApprovalDetailView4.hints.RoStatus.tooltip}"
                                               id="sbc1"/>
+                  </af:column>-->
+                  <af:column headerText="RO Status" id="c9" sortable="true" filterable="true" width="120">
+                  <f:facet name="filter">
+                                          <af:inputText value="#{vs.filterCriteria.RoStatus}"
+                                          id="it30" placeholder="Search Status">
+                           </af:inputText>
+                             </f:facet>
+                    <af:selectOneChoice value="#{row.bindings.RoStatus.inputValue}"
+                                        label="#{row.bindings.RoStatus.label}" autoSubmit="true"
+                                        required="#{bindings.TblGrantApprovalDetailView4.hints.RoStatus.mandatory}"
+                                        shortDesc="#{bindings.TblGrantApprovalDetailView4.hints.RoStatus.tooltip}"
+                                        id="soc5">
+                      <f:selectItems value="#{row.bindings.RoStatus.items}" id="si5"/>
+                      <f:validator binding="#{row.bindings.RoStatus.validator}"/>
+                    </af:selectOneChoice>
                   </af:column>
                 </af:table>
               </af:showDetailItem>

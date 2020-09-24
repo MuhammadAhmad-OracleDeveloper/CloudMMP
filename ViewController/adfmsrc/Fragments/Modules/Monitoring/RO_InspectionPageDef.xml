@@ -58,7 +58,7 @@
           <Item Value="FarmerName"/>
           <Item Value="FatherName"/>
           <Item Value="Remarks"/>
-          <Item Value="RoStatus" Binds="RoStatus"/>
+          <Item Value="RoStatus"/>
           <Item Value="InspBy"/>
           <Item Value="InspDate"/>
           <Item Value="InspRemarks"/>
@@ -94,15 +94,6 @@
     </tree>
     <action IterBinding="TblGrantApprovalDetailView4Iterator" id="Execute" RequiresUpdateModel="true"
             Action="iteratorExecute"/>
-    <button IterBinding="TblGrantApprovalDetailView4Iterator" id="RoStatus" DTSupportsMRU="false" StaticList="true">
-      <AttrNames>
-        <Item Value="RoStatus"/>
-      </AttrNames>
-      <ValueList>
-        <Item Value="insp ver"/>
-        <Item Value="vctat insp"/>
-      </ValueList>
-    </button>
     <action IterBinding="Inspection_Grant_Approval_Master1Iterator" id="Execute1" RequiresUpdateModel="true"
             Action="iteratorExecute"/>
     <tree IterBinding="TblGrantApprovalDetailDDView2Iterator" id="TblGrantApprovalDetailDDView2">
